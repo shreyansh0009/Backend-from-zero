@@ -9,9 +9,9 @@ app.get("/", (req, res) => {
 
 app.get("/create", async (req, res) => {
   const createdUser = await userModel.create({
-    name: "Rubi Gupta",
-    username: "rubig",
-    email: "rubig@gmail.com",
+    name: "Saurabh Shreyansh",
+    username: "shreyansh",
+    email: "shreyansh@gmail.com",
   });
   res.send(createdUser);
 });
@@ -24,10 +24,10 @@ app.get("/read", async (req, res) => {
 app.get("/update", async (req, res) => {
   const updatedUser = await userModel.findOneAndUpdate(
     {
-      username: "rubig",
+      username: "shreyansh",
     },
     {
-      username: "rubi123",
+      username: "shreyansh0009",
     },
     {
       new: true,
@@ -38,7 +38,7 @@ app.get("/update", async (req, res) => {
 
 app.get("/delete", async (req, res) => {
     const deletedUser = await userModel.findOneAndDelete({
-        username: "shreyansh0009"
+        username: "rubi123"
     });
     res.send(deletedUser);
 });
