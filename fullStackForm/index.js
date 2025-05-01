@@ -71,15 +71,16 @@ app.post("/edit/:id", async (req, res) => {
   }
 });
 
-app.post('/delete/:id', async (req, res) => {
-    try {
-      await userModel.findByIdAndDelete(req.params.id);
-      res.redirect('/show');
-    } catch (err) {
-      console.error('Error deleting user:', err);
-      res.status(500).send('Failed to delete user');
-    }
-  });
-  
+app.post("/delete/:id", async (req, res) => {
+  try {
+    await userModel.findByIdAndDelete(req.params.id);
+    res.redirect("/show");
+  } catch (err) {
+    console.error("Error deleting user:", err);
+    res.status(500).send("Failed to delete user");
+  }
+});
+
+
 
 app.listen(3001);

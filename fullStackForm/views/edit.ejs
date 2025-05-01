@@ -9,7 +9,7 @@
 <body class="bg-zinc-800 text-white">
   <div class="w-full h-screen p-10">
     <a href="/show" class="text-blue-300">Back to Users</a>
-    <h1 class="text-4xl font-bold mb-6">Edit User</h1>
+    <h1 class="text-4xl font-bold mb-6 mt-5">Edit User</h1>
 
     <form method="post" action="/edit/<%= user._id %>" class="flex flex-col space-y-4 max-w-md">
       <input type="text" name="fullName" value="<%= user.name %>" class="p-2 rounded text-black" />
