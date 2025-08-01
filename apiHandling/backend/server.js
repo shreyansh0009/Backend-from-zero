@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
     res.send("Hello from back-end!");
 })
 
-app.get('/jokes', (req, res) => {
+app.get('/api/jokes', (req, res) => {
     res.send(jokes);
     //now will render these jokes on front-end
 })

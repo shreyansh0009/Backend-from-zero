@@ -7,27 +7,29 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/jokes")
+      .get("/api/jokes")
       .then((res) => {
         setjokes(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  });
 
   return (
     <>
       <h1>Helloooo from Front-end</h1>
       <h3>JOKES: {jokes.length}</h3>
 
-      {jokes.map((joke, index) => {
+      {
+      jokes.map((joke, index) => (
         <div key={index}>
           <p>{joke.id}</p>
           <h3>{joke.tittle}</h3>
           <p>{joke.content}</p>
-        </div>;
-      })}
+        </div>
+      ))
+      }
     </>
   );
 }
