@@ -12,6 +12,31 @@ dist
 dist-ssr
 *.local
 
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Testing
+coverage
+.nyc_output
+
+# Build
+build/
+.cache/
+out/
+
+# Dependency directories
+.pnp/
+.pnp.js
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
