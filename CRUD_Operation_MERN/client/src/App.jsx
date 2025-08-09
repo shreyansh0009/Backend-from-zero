@@ -2,76 +2,76 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-//   const [username, setUsername] = useState("");
-//   const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState("");
+  const [fullName, setFullName] = useState("");
 
-//   // State to hold the list of users fetched from the backend.
-//   const [users, setUsers] = useState([]);
+  // State to hold the list of users fetched from the backend.
+  const [users, setUsers] = useState([]);
 
-//   // State to handle loading and error messages.
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
+  // State to handle loading and error messages.
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-//   const API_URL = "http://localhost:8000/api/users";
+  const API_URL = "http://localhost:8000/api/users";
 
-//   // Function to fetch all users from the backend.
-//   const fetchUsers = async () => {
-//     setLoading(true);
-//     setError(null);
-//     try {
-//       const response = await fetch(API_URL);
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! Status: ${response.status}`);
-//       }
-//       const data = await response.json();
-//       setUsers(data);
-//     } catch (err) {
-//       console.error("Failed to fetch users:", err);
-//       setError("Failed to load users. Please check your backend server.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+  // Function to fetch all users from the backend.
+  const fetchUsers = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      setUsers(data);
+    } catch (err) {
+      console.error("Failed to fetch users:", err);
+      setError("Failed to load users. Please check your backend server.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-//   // useEffect hook to run the fetchUsers function once when the component mounts.
-//   // The empty dependency array [] ensures this runs only on the initial render.
-//   useEffect(() => {
-//     fetchUsers();
-//   }, []);
+  // useEffect hook to run the fetchUsers function once when the component mounts.
+  // The empty dependency array [] ensures this runs only on the initial render.
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault(); // Prevents the default form submission behavior (page reload).
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevents the default form submission behavior (page reload).
 
-//     if (!username || !fullName) {
-//       setError("Both username and full name are required.");
-//       return;
-//     }
+    if (!username || !fullName) {
+      setError("Both username and full name are required.");
+      return;
+    }
 
-//     try {
-//       const userData = { username, fullName };
+    try {
+      const userData = { username, fullName };
 
-//       const response = await fetch(API_URL, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(userData),
-//       });
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
 
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! Status: ${response.status}`);
-//       }
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-//       // If the creation is successful, clear the form and refetch the users.
-//       setUsername("");
-//       setFullName("");
-//       fetchUsers();
-//       setError(null);
-//     } catch (err) {
-//       console.error("Failed to create user:", err);
-//       setError("Failed to create user. Please try again.");
-//     }
-//   };
+      // If the creation is successful, clear the form and refetch the users.
+      setUsername("");
+      setFullName("");
+      fetchUsers();
+      setError(null);
+    } catch (err) {
+      console.error("Failed to create user:", err);
+      setError("Failed to create user. Please try again.");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 sm:p-6 lg:p-8">
