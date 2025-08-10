@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { User } from "./models/user.model.js";
+import { User } from "../models/user.model.js";
 
 const app = express();
 app.use(
