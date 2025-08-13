@@ -16,11 +16,9 @@ function Login() {
         .post("https://api.escuelajs.co/api/v1/auth/login", user)
         .then((res) => {
           window.alert("Login Successfull!");
-          const access_token = res.data.access_token;
-          const refresh_token = res.data.refresh_token;
+          localStorage.setItem("Access Token: ", JSON.stringify(res.data.access_token));
+         // const refresh_token = res.data.refresh_token;
           console.log(res.data);
-          console.log("Access Token: ", access_token);
-          console.log("Refresh Token: ", refresh_token);
         });
     } catch (error) {
       console.log(error);
